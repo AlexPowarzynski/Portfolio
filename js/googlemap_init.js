@@ -6,7 +6,7 @@ var googlemap_init_obj = {
 	address: null,
 	point: null,
 	description: null
-}
+};
 function googlemap_init(dom_obj, address, description, point) {
 	googlemap_init_obj.dom = dom_obj;
 	googlemap_init_obj.point = point;
@@ -21,7 +21,7 @@ function googlemap_init(dom_obj, address, description, point) {
 	};
 	var custom_map = new google.maps.Geocoder();
 	custom_map.geocode( { "address": address}, function(results, status) {
-		if (status == google.maps.GeocoderStatus.OK) {
+		if (status === google.maps.GeocoderStatus.OK) {
 			googlemap_init_obj.address = results[0].geometry.location;
 			googlemap_create();
 		} else

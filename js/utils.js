@@ -8,8 +8,8 @@
 function setStateStyleSheet(title, state) {
 	var i, a;
 	for (i=0; (a = document.getElementsByTagName("link")[i]); i++) {
-		if (a.getAttribute("rel").indexOf("style") != -1 && a.getAttribute("title")) {
-			if (a.getAttribute("title") == title) a.disabled = !state;
+		if (a.getAttribute("rel").indexOf("style") !== -1 && a.getAttribute("title")) {
+			if (a.getAttribute("title") === title) a.disabled = !state;
     	}
   	}
 }
@@ -17,7 +17,7 @@ function setStateStyleSheet(title, state) {
 function getStateStyleSheet(title, state) {
 	var i, a, rez=-1;
 	for (i=0; (a = document.getElementsByTagName("link")[i]); i++) {
-		if (a.getAttribute("rel").indexOf("style") != -1 && a.getAttribute("title")) {
+		if (a.getAttribute("rel").indexOf("style") !== -1 && a.getAttribute("title")) {
 			if (a.getAttribute("title") == title) {
 				rez = a.disabled ? 0 : 1;
 				break;
@@ -30,7 +30,7 @@ function getStateStyleSheet(title, state) {
 function setActiveStyleSheet(title, disableOther) {
 	var i, a, main;
 	for (i=0; (a = document.getElementsByTagName("link")[i]); i++) {
-		if (a.getAttribute("rel").indexOf("style") != -1 && a.getAttribute("title")) {
+		if (a.getAttribute("rel").indexOf("style") !== -1 && a.getAttribute("title")) {
 			if (disableOther) a.disabled = true;
 			if (a.getAttribute("title") == title) a.disabled = false;
     	}
@@ -40,7 +40,7 @@ function setActiveStyleSheet(title, disableOther) {
 function getActiveStyleSheet() {
 	var i, a;
 	for (i=0; (a = document.getElementsByTagName("link")[i]); i++) {
-		if (a.getAttribute("rel").indexOf("style") != -1 && a.getAttribute("title") && !a.disabled) return a.getAttribute("title");
+		if (a.getAttribute("rel").indexOf("style") !== -1 && a.getAttribute("title") && !a.disabled) return a.getAttribute("title");
 	}
 	return null;
 }
@@ -48,7 +48,7 @@ function getActiveStyleSheet() {
 function getPreferredStyleSheet() {
 	var i, a;
 	for (i=0; (a = document.getElementsByTagName("link")[i]); i++) {
-		if (a.getAttribute("rel").indexOf("style") != -1 && a.getAttribute("rel").indexOf("alt") == -1 && a.getAttribute("title") )
+		if (a.getAttribute("rel").indexOf("style") !== -1 && a.getAttribute("rel").indexOf("alt") === -1 && a.getAttribute("title") )
 			return a.getAttribute("title");
 	}
 	return null;
@@ -72,7 +72,7 @@ function clearListBox(box) {
 
 function delListBoxItemByValue(box, val) {
 	for (var i=0; i<box.options.length; i++) {
-		if (box.options[i].value == val) {
+		if (box.options[i].value === val) {
 			box.options[i] = null;
 			break;
 		}
@@ -81,7 +81,7 @@ function delListBoxItemByValue(box, val) {
 
 function delListBoxItemByText(box, txt) {
 	for (var i=0; i<box.options.length; i++) {
-		if (box.options[i].text == txt) {
+		if (box.options[i].text === txt) {
 			box.options[i] = null;
 			break;
 		}
@@ -91,7 +91,7 @@ function delListBoxItemByText(box, txt) {
 function findListBoxItemByValue(box, val) {
 	var idx = -1;
 	for (var i=0; i<box.options.length; i++) {
-		if (box.options[i].value == val) {
+		if (box.options[i].value === val) {
 			idx = i;
 			break;
 		}
@@ -102,7 +102,7 @@ function findListBoxItemByValue(box, val) {
 function findListBoxItemByText(box, txt) {
 	var idx = -1;
 	for (var i=0; i<box.options.length; i++) {
-		if (box.options[i].text == txt) {
+		if (box.options[i].text === txt) {
 			idx = i;
 			break;
 		}
@@ -112,13 +112,13 @@ function findListBoxItemByText(box, txt) {
 
 function selectListBoxItemByValue(box, val) {
 	for (var i = 0; i < box.options.length; i++) {
-		box.options[i].selected = (val == box.options[i].value);
+		box.options[i].selected = (val === box.options[i].value);
 	}
 }
 
 function selectListBoxItemByText(box, txt) {
 	for (var i = 0; i < box.options.length; i++) {
-		box.options[i].selected = (txt == box.options[i].text);
+		box.options[i].selected = (txt === box.options[i].text);
 	}
 }
 
@@ -207,14 +207,14 @@ function getRadioGroupValue(radioGroupObj) {
 
 function setRadioGroupCheckedByNum(radioGroupObj, num) {
 	for (var i=0; i < radioGroupObj.length; i++)
-		if (radioGroupObj[i].checked && i!=num) radioGroupObj[i].checked=false;
-		else if (i==num) radioGroupObj[i].checked=true;
+		if (radioGroupObj[i].checked && i!==num) radioGroupObj[i].checked=false;
+		else if (i===num) radioGroupObj[i].checked=true;
 }
 
 function setRadioGroupCheckedByValue(radioGroupObj, val) {
 	for (var i=0; i < radioGroupObj.length; i++)
-		if (radioGroupObj[i].checked && radioGroupObj[i].value!=val) radioGroupObj[i].checked=false;
-		else if (radioGroupObj[i].value==val) radioGroupObj[i].checked=true;
+		if (radioGroupObj[i].checked && radioGroupObj[i].value!==val) radioGroupObj[i].checked=false;
+		else if (radioGroupObj[i].value===val) radioGroupObj[i].checked=true;
 }
 
 
@@ -276,9 +276,9 @@ function alltrim(str) {
 			}
 		}
 	}
-	if (dir=='a' || dir=='r') {
+	if (dir==='a' || dir==='r') {
 		for (i=str.length-1; i>=0; i--) {
-			if (str.substr(i,1)!=' ') {
+			if (str.substr(i,1)!==' ') {
 				end = i;
 				break;
 			}
