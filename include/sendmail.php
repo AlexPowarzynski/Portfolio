@@ -13,7 +13,7 @@ $response = array('error'=>'');
 	$contact_email = 'alexpowarzynski@me.com';
 	
 	if (trim($contact_email)!='') {
-		$subj = 'Message from ShiftCV HTML';
+		$subj = 'Message from Website';
 		$msg = "Name: $user_name
 		E-mail: $user_email
 		Message: $user_msg";
